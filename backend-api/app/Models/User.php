@@ -53,4 +53,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    /**
+     * Get all crypto assets (BTC, ETH, etc.) owned by the user.
+     * This is required for your side-selling logic.
+     */
+    public function assets()
+    {
+        return $this->hasMany(Asset::class);
+    }
 }

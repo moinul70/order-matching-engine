@@ -16,16 +16,16 @@ class UserSeeder extends Seeder
     {
         // User 1: The Buyer
         User::create([
-            'name' => 'Buyer Account',
-            'email' => 'buyer@example.com',
+            'name' => 'BigMan',
+            'email' => 'big@example.com',
             'password' => Hash::make('password123'),
             'balance' => 50000.00000000, // $50,000 USD for testing
         ]);
 
         // User 2: The Seller
         User::create([
-            'name' => 'Seller Account',
-            'email' => 'seller@example.com',
+            'name' => 'SmallMan',
+            'email' => 'small@example.com',
             'password' => Hash::make('password123'),
             'balance' => 1000.00000000,  // $1,000 USD
         ]);
