@@ -1,7 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
-    <Dashboard />
-  </div>
+  <router-view />
 </template>
 
 <script setup>
