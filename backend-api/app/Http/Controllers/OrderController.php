@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use App\Services\MatchingEngineService;
 
 class OrderController extends Controller
@@ -30,6 +31,13 @@ class OrderController extends Controller
             'price' => 'required|numeric|min:0.00000001',
             'amount' => 'required|numeric|min:0.00000001',
         ]);
+
+        $key = $request->header('Idempotency-Key');
+
+        if (!$key) {
+            return response()->json(['error' => 'Idempotency-Key header is required'], 400);
+        }
+
 
         $user = $request->user();
         $totalCost = $request->price * $request->amount;
