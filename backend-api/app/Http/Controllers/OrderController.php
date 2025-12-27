@@ -22,7 +22,7 @@ class OrderController extends Controller
     }
 
     // POST /api/orders
-    public function store(Request $request): JsonResponse
+    public function store(Request $request)
     {
         $request->validate([
             'symbol' => 'required|string',
